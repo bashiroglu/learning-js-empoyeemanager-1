@@ -1,6 +1,7 @@
 // imports
 
 import { Request } from "./requests";
+import { UI } from "./ui";
 
 // Selecting elements
 
@@ -13,12 +14,27 @@ const updateEmployeeButton = document.getElementById("update");
 
 // Object creating
 const request = new Request("http://localhost:3000/employees");
+const ui = new UI();
 
-request
-  .get()
-  .then(employee => console.log(employee))
-  .catch(err => console.log(err));
+eventListener();
 
+function eventListener() {
+  document.addEventListener("DOMContentLoaded", getAllEmployees);
+
+  function getAllEmployees() {
+    request
+      .get()
+      .then(employees => {
+        ui.addEmployeesToUi(employees);
+      })
+      .catch(err => console.log(err));
+  }
+}
+
+// request
+//   .get()
+//   .then(employee => console.log(employee))
+//   .catch(err => console.log(err));
 // request
 //   .post({ name: "Ismayil", department: "engineering", sallary: "7000" })
 //   .then(employee => console.log(employee))
@@ -30,5 +46,5 @@ request
 
 // request
 //   .delete(3)
-//   .then(employee => console.log(employee))
+//   .then(message => console.log(message))
 //   .catch(err => console.log(err));

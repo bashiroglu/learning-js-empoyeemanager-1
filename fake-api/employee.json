@@ -11,6 +11,12 @@
       "department": "development",
       "sallary": "5000",
       "id": 2
+    },
+    {
+      "name": "Ismayil Bashirli",
+      "department": "engineering",
+      "sallary": "7000",
+      "id": 3
     }
   ]
 }
