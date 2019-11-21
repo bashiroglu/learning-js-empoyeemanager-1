@@ -16,10 +16,19 @@ const request = new Request("http://localhost:3000/employees");
 
 request
   .get()
-  .then(employees => console.log(employees))
+  .then(employee => console.log(employee))
   .catch(err => console.log(err));
 
 // request
 //   .post({ name: "Ismayil", department: "engineering", sallary: "7000" })
+//   .then(employee => console.log(employee))
+//   .catch(err => console.log(err));
+// request
+//   .put(1,{sallary: "3200"})
+//   .then(employee => console.log(employee))
+//   .catch(err => console.log(err));
+
+// request
+//   .delete(3)
 //   .then(employee => console.log(employee))
 //   .catch(err => console.log(err));
