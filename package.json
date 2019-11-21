@@ -7,7 +7,7 @@
     "test": "This is a test",
     "start": "webpack-dev-server --output-public-path=/bundles/  --mode development --open --hot",
     "build": "webpack --progress",
-    "startserver": "json-server --watch fake-api/employee.json"
+    "startjsonserver": "json-server --watch fake-api/employee.json"
   },
   "keywords": [
     "employee",
