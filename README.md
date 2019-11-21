@@ -2,24 +2,29 @@ This is learning based project which I practise some JS features. The idea of th
 
 The name of project learning-empoyeemanage#1
 
-Used Languages and methods: 
+Used Languages and methods:
 Pure Javascript concepts:
 
 Dom manipulation
-JSON file and JSON server
-JSON requests: POST, GET, PUT, DELETE
-API
-Index of
-preventDefault
-Promise
-class
-Molules
+1. JSON file and JSON server
+2. JSON requests: POST, GET, PUT, DELETE
+3. API
+4. Index of
+5. preventDefault
+6. Promise
+7. class
+8. Molules
 
 
 Material-UI concepts:
 
-Form
-buttons
-gridbox
+1. Form
+2. buttons
+3. gridbox
 
 Node packages and gitignore file usage.
+
+Added features: 
+1. 
+
+Addable features:
