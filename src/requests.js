@@ -10,10 +10,10 @@ export class Request {
   }
   async post(data) {
     const response = await fetch(this.url, {
-      method: "POST",
+      method: 'POST',
       body: JSON.stringify(data),
       headers: {
-        "Content-type": "application/json; charset=UTF-8"
+        'Content-type': 'application/json; charset=UTF-8'
       }
     });
     const responseData = await response.json();
@@ -22,10 +22,10 @@ export class Request {
   }
   async put(id, data) {
     const response = await fetch(`${this.url}/${id}`, {
-      method: "PUT",
+      method: 'PUT',
       body: JSON.stringify(data),
       headers: {
-        "Content-type": "application/json; charset=UTF-8"
+        'Content-type': 'application/json; charset=UTF-8'
       }
     });
     const responseData = await response.json();
@@ -34,9 +34,9 @@ export class Request {
   }
   async delete(id) {
     const response = await fetch(`${this.url}/${id}`, {
-      method: "DELETE"
+      method: 'DELETE'
     });
 
-    return "Data deleted";
+    return 'Data deleted';
   }
 }

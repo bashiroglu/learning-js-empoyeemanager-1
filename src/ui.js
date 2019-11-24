@@ -1,13 +1,13 @@
 export class UI {
   constructor(url) {
-    this.employeesList = document.getElementById("employees");
-    this.updateEmployeeButton = document.getElementById("update");
-    this.nameInput = document.getElementById("name");
-    this.departmentInput = document.getElementById("department");
-    this.sallaryInput = document.getElementById("sallary");
+    this.employeesList = document.getElementById('employees');
+    this.updateEmployeeButton = document.getElementById('update');
+    this.nameInput = document.getElementById('name');
+    this.departmentInput = document.getElementById('department');
+    this.salaryInput = document.getElementById('salary');
   }
   throwAlert(type, message) {
-    const alertDiv = document.createElement("div");
+    const alertDiv = document.createElement('div');
 
     alertDiv.className = `alert alert-${type}`;
     alertDiv.textContent = message;
@@ -47,7 +47,7 @@ export class UI {
       <td>${employee.id}</td>
       <td>${employee.name}</td>
       <td>${employee.department}</td>
-      <td>${employee.sallary}</td>
+      <td>${employee.salary}</td>
       <td>
         <a href="#" id="update-employee" class="btn btn-danger">
           Güncelle
@@ -62,5 +62,36 @@ export class UI {
         `;
     });
     this.employeesList.innerHTML = result;
+  }
+  clearInputs() {
+    // console.log(this.nameInput.value)
+    // console.log(this.departmentInput.value)
+    // console.log(this.sallaryInput.value)
+    this.nameInput.value = '';
+    this.departmentInput.value = '';
+    this.salaryInput.value = '';
+  }
+  deleteEmployeeFormUi(element) {
+    element.remove();
+  }
+  addEmployeeToUi(employee) {
+    this.employeesList.innerHTML += `
+    <tr>
+      <td>${employee.id}</td>
+      <td>${employee.name}</td>
+      <td>${employee.department}</td>
+      <td>${employee.salary}</td>
+      <td>
+        <a href="#" id="update-employee" class="btn btn-danger">
+          Update
+        </a>
+      </td>
+      <td>
+        <a href="#" id="delete-employee" class="btn btn-danger">
+        Delete
+        </a>
+      </td>
+    </tr>
+    `;
   }
 }

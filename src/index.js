@@ -1,26 +1,26 @@
 // imports
 
-import { Request } from "./requests";
-import { UI } from "./ui";
+import { Request } from './requests';
+import { UI } from './ui';
 
 // Selecting elements
 
-const form = document.getElementById("employee-form");
-const nameInput = document.getElementById("name");
-const departmentInput = document.getElementById("department");
-const sallaryInput = document.getElementById("sallary");
-const employeesList = document.getElementById("employees");
-const updateEmployeeButton = document.getElementById("update");
+const form = document.getElementById('employee-form');
+const nameInput = document.getElementById('name');
+const departmentInput = document.getElementById('department');
+const salaryInput = document.getElementById('salary');
+const employeesList = document.getElementById('employees');
+const updateEmployeeButton = document.getElementById('update');
 
 // Object creating
-const request = new Request("http://localhost:3000/employees");
+const request = new Request('http://localhost:3000/employees');
 const ui = new UI();
 
 eventListener();
 
 function eventListener() {
-  document.addEventListener("DOMContentLoaded", getAllEmployees);
-
+  document.addEventListener('DOMContentLoaded', getAllEmployees);
+  form.addEventListener('submit', addEmployee);
   function getAllEmployees() {
     request
       .get()
@@ -29,6 +29,28 @@ function eventListener() {
       })
       .catch(err => console.log(err));
   }
+}
+function addEmployee(e) {
+  const employeeName = nameInput.value.trim();
+  const departmentName = departmentInput.value.trim();
+  const salaryName = salaryInput.value.trim();
+
+  if (employeeName === '' || departmentName === '' || salaryName === '') {
+    alert('please fill in all required inputs');
+  } else {
+    request
+      .post({
+        name: employeeName,
+        department: departmentName,
+        salary: Number(salaryName)
+      })
+      .then(employee => {
+        ui.addEmployeeToUi(employee);
+      })
+      .catch(err => console.log(err));
+  }
+  ui.clearInputs();
+  e.preventDefault();
 }
 
 // request

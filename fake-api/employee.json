@@ -3,19 +3,19 @@
     {
       "name": "Abdulla Bashiroghlu",
       "department": "development",
-      "sallary": "3000",
+      "salary": 3000,
       "id": 1
     },
     {
       "name": "Elvin Bashirli",
       "department": "development",
-      "sallary": "5000",
+      "salary": 5000,
       "id": 2
     },
     {
       "name": "Ismayil Bashirli",
       "department": "engineering",
-      "sallary": "7000",
+      "salary": 7000,
       "id": 3
     }
   ]
