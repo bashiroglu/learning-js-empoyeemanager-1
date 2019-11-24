@@ -50,12 +50,12 @@ export class UI {
       <td>${employee.salary}</td>
       <td>
         <a href="#" id="update-employee" class="btn btn-danger">
-          Güncelle
+          Update
         </a>
       </td>
       <td>
         <a href="#" id="delete-employee" class="btn btn-danger">
-          Sil
+        Delete
         </a>
       </td>
     </tr>
@@ -94,4 +94,6 @@ export class UI {
     </tr>
     `;
   }
+  
+  
 }

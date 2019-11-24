@@ -29,6 +29,7 @@ function eventListener() {
       })
       .catch(err => console.log(err));
   }
+  employeesList.addEventListener('click', updateOrDelete);
 }
 function addEmployee(e) {
   const employeeName = nameInput.value.trim();
@@ -70,3 +71,23 @@ function addEmployee(e) {
 //   .delete(3)
 //   .then(message => console.log(message))
 //   .catch(err => console.log(err));
+function updateOrDelete(e) {
+  if (e.target.id === 'delete-employee') {
+    deleteEmployee(e.target);
+  } else if (e.target.id === 'update-employee') {
+  }
+  e.preventDefault();
+}
+function deleteEmployee(eventTarget) {
+  const id =
+    eventTarget.parentElement.previousElementSibling.previousElementSibling
+      .previousElementSibling.previousElementSibling.previousElementSibling
+      .textContent;
+  console.log(id);
+  request
+    .delete(id)
+    .then(message => {
+      ui.deleteEmployeeFormUi(eventTarget.parentElement.parentElement);
+    })
+    .catch(err => console.log(err));
+}
