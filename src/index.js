@@ -15,6 +15,7 @@ const updateEmployeeButton = document.getElementById('update');
 // Object creating
 const request = new Request('http://localhost:3000/employees');
 const ui = new UI();
+let updateState = null;
 
 eventListener();
 
@@ -30,6 +31,7 @@ function eventListener() {
       .catch(err => console.log(err));
   }
   employeesList.addEventListener('click', updateOrDelete);
+  updateEmployeeButton.addEventListener('click', updateEmployee);
 }
 function addEmployee(e) {
   const employeeName = nameInput.value.trim();
@@ -92,6 +94,30 @@ function deleteEmployee(eventTarget) {
     })
     .catch(err => console.log(err));
 }
+
 function updateEmployeeController(targetEmployee) {
   ui.toggleUpdateButton(targetEmployee);
+  if (updateState === null) {
+    updateState = {
+      updateId: targetEmployee.children[0].textContent,
+      updateParent: targetEmployee
+    };
+  } else {
+    updateState = null;
+  }
+}
+function updateEmployee(params) {
+  if (updateState) {
+    const data = {
+      name: nameInput.value.trim(),
+      department: departmentInput.value.trim(),
+      salary: Number(salaryInput.value.trim())
+    };
+    request
+      .put(updateState.updateId, data)
+      .then(updatedEmployee => {
+        ui.updateEmployeeOnUi(updatedEmployee, updateState.updateParent);
+      })
+      .catch(err => console.log(err));
+  }
 }

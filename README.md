@@ -28,3 +28,7 @@ Added features:
 1. 
 
 Addable features:
+1. manual testing and remove bugs
+2. filter to employees
+3. add modal to delete
+4. hide add items button while deleting

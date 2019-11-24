@@ -109,4 +109,25 @@ export class UI {
       this.clearInputs();
     }
   }
+  updateEmployeeOnUi(employee, parent) {
+    parent.innerHTML = `
+    <tr>
+      <td>${employee.id}</td>
+      <td>${employee.name}</td>
+      <td>${employee.department}</td>
+      <td>${employee.salary}</td>
+      <td>
+        <a href="#" id="update-employee" class="btn btn-danger">
+          Update
+        </a>
+      </td>
+      <td>
+        <a href="#" id="delete-employee" class="btn btn-danger">
+        Delete
+        </a>
+      </td>
+    </tr>
+    `;
+    this.clearInputs();
+  }
 }
