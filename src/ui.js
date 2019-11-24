@@ -94,6 +94,19 @@ export class UI {
     </tr>
     `;
   }
-  
-  
+  addEmployeeDataToInputs(target) {
+    const children = target.children;
+    this.nameInput.value = children[1].textContent;
+    this.departmentInput.value = children[2].textContent;
+    this.salaryInput.value = children[3].textContent;
+  }
+  toggleUpdateButton(target) {
+    if (this.updateEmployeeButton.style.display === 'none') {
+      this.updateEmployeeButton.style.display = 'block';
+      this.addEmployeeDataToInputs(target);
+    } else {
+      this.updateEmployeeButton.style.display = 'none';
+      this.clearInputs();
+    }
+  }
 }

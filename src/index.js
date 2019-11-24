@@ -75,6 +75,7 @@ function updateOrDelete(e) {
   if (e.target.id === 'delete-employee') {
     deleteEmployee(e.target);
   } else if (e.target.id === 'update-employee') {
+    updateEmployeeController(e.target.parentElement.parentElement);
   }
   e.preventDefault();
 }
@@ -90,4 +91,7 @@ function deleteEmployee(eventTarget) {
       ui.deleteEmployeeFormUi(eventTarget.parentElement.parentElement);
     })
     .catch(err => console.log(err));
+}
+function updateEmployeeController(targetEmployee) {
+  ui.toggleUpdateButton(targetEmployee);
 }
